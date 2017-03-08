@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>find the extra one!</title>
+	<style type="text/css">
+        		html, body {
+        			width: 100%;
+        			max-width: 100%;
+        			height: 100%;
+        			max-height: 100%;
+        		}
+
+        		body {
+        			display: flex;
+        			flex-direction: column;
+        			margin: 0;
+        		}
+        		div{position: relative;}
+        		header {
+        			padding: 1em;
+        			background: azure;
+        			border-bottom: 1px solid #e0e0e0;
+        		}
+                #leftSide{
+                	
+        			width: 50%;height: 500px
+                }
+        		#rightSide{
+        			
+        			width: 50%;
+        			border-left: 1px solid #a0a0a0;height: 500px;
+        		}
+
+        		.container {
+        			display: flex;
+        			flex-direction: row;
+        			flex-grow: 1;
+        		}
+        		img{
+        			position: absolute;
+        		}
+        		
+
+	</style>
+	<script>
+		
+	var numberOfFaces = 5;
+	var theLeftSide =
+	    document.getElementById("leftSide");
+	    function generateFaces(){
+	    	for(i=0;i<numberOfFaces;i++){
+	    		var smiley = document.createElement("img");
+	    		smiley.src="http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+	    		smiley.cssClass = "smiley";
+	    		smiley.style.top = ""+Math.random()*400+ "px";
+	    		console.log(smiley.style.top);
+	    		smiley.style.left = ""+Math.random()*400+"px";
+	    		console.log(smiley.style.left);
+	    		document.getElementById("leftSide").appendChild(smiley);
+	    		smiley.style.width = "70px";
+	    		smiley.style.height = "70px";
+	    	}
+	    };
+	</script>
+</head>
+<body onload="generateFaces()">
+	
+	<header>
+		<h1><i>MATCHING GAME!</i></h1>
+		<h3><i>Find the extra faces on left-side</i></h3>
+	</header>
+	<div class="container">
+		<div id="leftSide"></div>
+		<div id="rightSide"></div>
+	</div>
+
+
+
+</body>
+</html>
