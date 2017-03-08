@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>game on</title>
+</head>
+<body onload="game()">
+        <script type="text/javascript">
+            var finished = false;
+            var guess = 0;
+            var text;
+            var colors = ["blue","gold","gray","green","magenta","orange","cyan","red","white","yellow"]
+            var colors = colors.sort();
+            var textans = colors.join("  ");
+            function game(){
+                var randomno = Math.random() * (colors.length - 1);
+                var randomint = Math.floor(randomno);
+                var target = randomint ;
+                var answer = colors[target];
+                alert("the correct answer is:"+answer);
+                while(!finished){
+                text = prompt("I am thinking of one of these colors:\n\n"+textans+"\n"+"What color am I thinking of ?").toLowerCase();
+                textindex = colors.indexOf(text);
+                guess += 1;
+                if(target == textindex){
+                    document.body.style.backgroundColor = colors[target];
+                    alert("Congrats! you have choosen the right color"+"It took"+guess+"guesses to finish the game.");
+                    finished = true;}
+                }
+                
+            
+
+            
+        };
+
+
+        </script>
+
+
+</body>
+</html>         
